@@ -137,7 +137,7 @@ const OrderSummary = ({ totalPrice, items }) => {
           const paystack = window.PaystackPop.setup({
             key: publicKey,
             email: selectedAddress.email || "customer@hishop.com",
-            amount: Math.round(finalTotal * 100),
+            amount: initializeData.data.amount,
             currency: "NGN",
             ref: initializeData.data.reference,
             callback: async function (response) {
