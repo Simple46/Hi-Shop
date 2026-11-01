@@ -1,0 +1,10 @@
+npm info using npm@11.12.1
+npm info using node@v24.15.0
+
+> sharpbuy@0.1.0 build
+> next build
+
+   ▲ Next.js 15.3.5
+   - Environments: .env
+
+   Creating an optimized production build ...

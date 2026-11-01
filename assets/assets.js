@@ -2,6 +2,7 @@ import gs_logo from "./gs_logo.jpg"
 import happy_store from "./happy_store.webp"
 import upload_area from "./upload_area.svg"
 import hero_model_img from "./hero_model_img.png"
+import hero_modal_img from "./hero_modal_img.png";
 import hero_product_img1 from "./hero_product_img1.png"
 import hero_product_img2 from "./hero_product_img2.png"
 import product_img1 from "./product_img1.png"
@@ -22,11 +23,25 @@ import profile_pic2 from "./profile_pic2.jpg"
 import profile_pic3 from "./profile_pic3.jpg"
 
 export const assets = {
-    upload_area, hero_model_img,
-    hero_product_img1, hero_product_img2, gs_logo,
-    product_img1, product_img2, product_img3, product_img4, product_img5, product_img6,
-    product_img7, product_img8, product_img9, product_img10, product_img11, product_img12,
-}
+  upload_area,
+  hero_model_img,
+  hero_modal_img,
+  hero_product_img1,
+  hero_product_img2,
+  gs_logo,
+  product_img1,
+  product_img2,
+  product_img3,
+  product_img4,
+  product_img5,
+  product_img6,
+  product_img7,
+  product_img8,
+  product_img9,
+  product_img10,
+  product_img11,
+  product_img12,
+};
 
 export const categories = ["Headphones", "Speakers", "Watch", "Earbuds", "Mouse", "Decoration"];
 
@@ -281,48 +296,78 @@ export const dummyUserData = {
 }
 
 export const orderDummyData = [
-    {
-        id: "cmemm75h5001jtat89016h1p3",
-        total: 214.2,
-        status: "DELIVERED",
-        userId: "user_31dQbH27HVtovbs13X2cmqefddM",
-        storeId: "cmemkqnzm000htat8u7n8cpte",
-        addressId: "cmemm6g95001ftat8omv9b883",
-        isPaid: false,
-        paymentMethod: "COD",
-        createdAt: "2025-08-22T09:15:03.929Z",
-        updatedAt: "2025-08-22T09:15:50.723Z",
-        isCouponUsed: true,
-        coupon: dummyRatingsData[2],
-        orderItems: [
-            { orderId: "cmemm75h5001jtat89016h1p3", productId: "cmemlydnx0017tat8h3rg92hz", quantity: 1, price: 89, product: productDummyData[0], },
-            { orderId: "cmemm75h5001jtat89016h1p3", productId: "cmemlxgnk0015tat84qm8si5v", quantity: 1, price: 149, product: productDummyData[1], }
-        ],
-        address: addressDummyData,
-        user: dummyUserData
-    },
-    {
-        id: "cmemm6jv7001htat8vmm3gxaf",
-        total: 421.6,
-        status: "DELIVERED",
-        userId: "user_31dQbH27HVtovbs13X2cmqefddM",
-        storeId: "cmemkqnzm000htat8u7n8cpte",
-        addressId: "cmemm6g95001ftat8omv9b883",
-        isPaid: false,
-        paymentMethod: "COD",
-        createdAt: "2025-08-22T09:14:35.923Z",
-        updatedAt: "2025-08-22T09:15:52.535Z",
-        isCouponUsed: true,
-        coupon: couponDummyData[0],
-        orderItems: [
-            { orderId: "cmemm6jv7001htat8vmm3gxaf", productId: "cmemm1f3y001dtat8liccisar", quantity: 1, price: 229, product: productDummyData[2], },
-            { orderId: "cmemm6jv7001htat8vmm3gxaf", productId: "cmemm0nh2001btat8glfvhry1", quantity: 1, price: 99, product: productDummyData[3], },
-            { orderId: "cmemm6jv7001htat8vmm3gxaf", productId: "cmemlz8640019tat8kz7emqca", quantity: 1, price: 199, product: productDummyData[4], }
-        ],
-        address: addressDummyData,
-        user: dummyUserData
-    }
-]
+  {
+    id: "cmemm75h5001jtat89016h1p3",
+    total: 214.2,
+    status: "DELIVERED",
+    userId: "user_31dQbH27HVtovbs13X2cmqefddM",
+    storeId: "cmemkqnzm000htat8u7n8cpte",
+    addressId: "cmemm6g95001ftat8omv9b883",
+    isPaid: false,
+    paymentMethod: "Pay on Delivery",
+    createdAt: "2025-08-22T09:15:03.929Z",
+    updatedAt: "2025-08-22T09:15:50.723Z",
+    isCouponUsed: true,
+    coupon: dummyRatingsData[2],
+    orderItems: [
+      {
+        orderId: "cmemm75h5001jtat89016h1p3",
+        productId: "cmemlydnx0017tat8h3rg92hz",
+        quantity: 1,
+        price: 89,
+        product: productDummyData[0],
+      },
+      {
+        orderId: "cmemm75h5001jtat89016h1p3",
+        productId: "cmemlxgnk0015tat84qm8si5v",
+        quantity: 1,
+        price: 149,
+        product: productDummyData[1],
+      },
+    ],
+    address: addressDummyData,
+    user: dummyUserData,
+  },
+  {
+    id: "cmemm6jv7001htat8vmm3gxaf",
+    total: 421.6,
+    status: "DELIVERED",
+    userId: "user_31dQbH27HVtovbs13X2cmqefddM",
+    storeId: "cmemkqnzm000htat8u7n8cpte",
+    addressId: "cmemm6g95001ftat8omv9b883",
+    isPaid: false,
+    paymentMethod: "Pay on Delivery",
+    createdAt: "2025-08-22T09:14:35.923Z",
+    updatedAt: "2025-08-22T09:15:52.535Z",
+    isCouponUsed: true,
+    coupon: couponDummyData[0],
+    orderItems: [
+      {
+        orderId: "cmemm6jv7001htat8vmm3gxaf",
+        productId: "cmemm1f3y001dtat8liccisar",
+        quantity: 1,
+        price: 229,
+        product: productDummyData[2],
+      },
+      {
+        orderId: "cmemm6jv7001htat8vmm3gxaf",
+        productId: "cmemm0nh2001btat8glfvhry1",
+        quantity: 1,
+        price: 99,
+        product: productDummyData[3],
+      },
+      {
+        orderId: "cmemm6jv7001htat8vmm3gxaf",
+        productId: "cmemlz8640019tat8kz7emqca",
+        quantity: 1,
+        price: 199,
+        product: productDummyData[4],
+      },
+    ],
+    address: addressDummyData,
+    user: dummyUserData,
+  },
+];
 
 export const storesDummyData = [
     {

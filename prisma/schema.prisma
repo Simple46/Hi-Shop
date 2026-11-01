@@ -4,12 +4,11 @@ generator client {
 }
 
 datasource db {
-    provider  = "postgresql"
-    url       = env("DATABASE_URL")
-    directUrl = env("DIRECT_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
-// Required for creating a User: id, name, email, image, cart (optional JSON string)
+ // Required for creating a User: id, name, email, image, cart (optional JSON string)
 model User {
     id    String @id
     name  String
@@ -52,25 +51,27 @@ enum OrderStatus {
 }
 
 enum PaymentMethod {
-    COD
-    STRIPE
+    PAYSTACK
+    PAY_ON_DELIVERY
 }
 
 // Required for creating an Order: total, userId, storeId, addressId, isPaid, paymentMethod, isCouponUsed, coupon (JSON), orderItems (nested)
 model Order {
-    id            String        @id @default(cuid())
-    total         Float
-    status        OrderStatus   @default(ORDER_PLACED)
-    userId        String
-    storeId       String
-    addressId     String
-    isPaid        Boolean       @default(false)
-    paymentMethod PaymentMethod
-    createdAt     DateTime      @default(now())
-    updatedAt     DateTime      @updatedAt
-    isCouponUsed  Boolean       @default(false)
-    coupon        Json          @default("{}")
-    orderItems    OrderItem[]
+    id                String        @id @default(cuid())
+    total             Float
+    status            OrderStatus   @default(ORDER_PLACED)
+    userId            String
+    storeId           String
+    addressId         String
+    isPaid            Boolean       @default(false)
+    paymentMethod     PaymentMethod
+    paymentReference  String?
+    paidAt            DateTime?
+    createdAt         DateTime      @default(now())
+    updatedAt         DateTime      @updatedAt
+    isCouponUsed      Boolean       @default(false)
+    coupon            Json          @default("{}")
+    orderItems        OrderItem[]
 
     // Relations
     user    User    @relation("BuyerRelation", fields: [userId], references: [id])

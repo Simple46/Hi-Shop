@@ -18,7 +18,7 @@ const Navbar = () => {
     const cartCount = useSelector(state => state.cart.total)
 
     const handleSearch = (e) => {
-        e.preventDefault()
+      e.preventDefault()
         router.push(`/shop?search=${search}`)
     }
 
@@ -54,7 +54,11 @@ const Navbar = () => {
                   type="text"
                   placeholder="Search products"
                   value={search}
-                  onChange={(e) => setSearch(e.target.value)}
+                  onChange={(e) => {
+                    setSearch(e.target.value)
+                    router.push(`/shop?search=${search}`)
+                  }
+                  } 
                   required
                 />
               </form>
@@ -73,6 +77,8 @@ const Navbar = () => {
               {!user ? (
                 <button
                   onClick={openSignIn}
+                  // is loading property
+                  
                   className="px-8 py-2 bg-indigo-500 hover:bg-indigo-600 transition text-white rounded-full"
                 >
                   Login
